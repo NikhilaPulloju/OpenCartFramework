@@ -1,0 +1,31 @@
+package testCases;
+
+import org.testng.annotations.Test;
+
+import junit.framework.Assert;
+import pageObjects.AccountRegistrationPage;
+import pageObjects.HomePage;
+
+public class TC001_AccountRegistration extends BaseClass {
+	
+	@Test
+	public void accRegister()
+	{
+		HomePage hp=new HomePage(driver);
+		hp.clickMyAccount();
+		hp.clickRegister();
+		AccountRegistrationPage regPage=new AccountRegistrationPage(driver);
+		regPage.setFirstName("randomString");
+		regPage.setLastName("randomString");
+		regPage.setEmail(randomString()+"@yopmail.com");
+		regPage.setTelephone("9876543210");
+		regPage.setPassword("Test@123");
+		regPage.checkPrivacy();
+		regPage.clickContinue();
+		String msg=regPage.getConfMessage();
+		Assert.assertEquals("Your Account Has Been Created!", msg);
+	}
+	
+	
+
+}
