@@ -3,6 +3,7 @@ package testBase;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.net.URI;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Date;
@@ -10,10 +11,13 @@ import java.util.Properties;
 import java.util.UUID;
 
 import org.openqa.selenium.OutputType;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
@@ -31,13 +35,44 @@ public class BaseClass {
 		FileInputStream file=new FileInputStream("./src/test/resources/config.properties");
 		prop.load(file);
 		
-		switch(br.toLowerCase())
+		if(prop.getProperty("execution_env").equalsIgnoreCase("remote"))
 		{
-		case "chrome" : driver=new ChromeDriver(); break;
-		case "edge" : driver=new EdgeDriver(); break;
-		default: System.out.println("Invalid Browser name");return;
+			DesiredCapabilities capabilities=new DesiredCapabilities();
+			
+			//ChromeOptions options=new ChromeOptions();
+			
+			if(os.equalsIgnoreCase("windows"))
+			{
+				capabilities.setPlatform(Platform.WIN11);
+			}else if(os.equalsIgnoreCase("linux"))
+			{
+				capabilities.setPlatform(Platform.LINUX);
+			}else if(os.equalsIgnoreCase("mac"))
+			{
+				capabilities.setPlatform(Platform.MAC);
+			}else {
+				System.out.println("No matching OS");
+				return;
+			}
+			switch(br.toLowerCase())
+			{
+			case "chrome" : capabilities.setBrowserName("chrome"); break;
+			case "edge" : capabilities.setBrowserName("MicrosoftEdge"); break;
+			default: System.out.println("Invalid Browser name");return;
+			}
+			driver = new RemoteWebDriver(URI.create("http://localhost:4442").toURL(),capabilities);
 		}
 		
+		
+		if(prop.getProperty("execution_env").equalsIgnoreCase("local"))
+		{
+			switch(br.toLowerCase())
+			{
+			case "chrome" : driver=new ChromeDriver(); break;
+			case "edge" : driver=new EdgeDriver(); break;
+			default: System.out.println("Invalid Browser name");return;
+			}
+		}
 		driver.manage().deleteAllCookies();
 		driver.get(prop.getProperty("appURL")); //reading URL from config.properties file
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));

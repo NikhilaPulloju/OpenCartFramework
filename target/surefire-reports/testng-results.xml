@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2026-06-10T18:42:13 IST" name="Suite" finished-at="2026-06-10T18:42:41 IST" duration-ms="28415">
+    <groups>
+      <group name="Sanity">
+        <method signature="TC001_AccountRegistration.accRegister()[pri:0, instance:testCases.TC001_AccountRegistration@460d0a57]" name="accRegister" class="testCases.TC001_AccountRegistration"/>
+        <method signature="TC002_LoginTest.verify_login()[pri:0, instance:testCases.TC002_LoginTest@1b1473ab]" name="verify_login" class="testCases.TC002_LoginTest"/>
+      </group> <!-- Sanity -->
+      <group name="Regression">
+        <method signature="TC002_LoginTest.verify_login()[pri:0, instance:testCases.TC002_LoginTest@1b1473ab]" name="verify_login" class="testCases.TC002_LoginTest"/>
+      </group> <!-- Regression -->
+    </groups>
+    <test started-at="2026-06-10T18:42:13 IST" name="Test" finished-at="2026-06-10T18:42:41 IST" duration-ms="28415">
+      <class name="testCases.TC002_LoginTest">
+        <test-method is-config="true" signature="setUp(java.lang.String,java.lang.String)[pri:0, instance:testCases.TC002_LoginTest@1b1473ab]" started-at="2026-06-10T18:42:34 IST" name="setUp" finished-at="2026-06-10T18:42:38 IST" duration-ms="4361" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Windows]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[edge]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="verify_login()[pri:0, instance:testCases.TC002_LoginTest@1b1473ab]" started-at="2026-06-10T18:42:38 IST" name="verify_login" finished-at="2026-06-10T18:42:41 IST" duration-ms="2309" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_login -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:testCases.TC002_LoginTest@1b1473ab]" started-at="2026-06-10T18:42:41 IST" name="tearDown" finished-at="2026-06-10T18:42:41 IST" duration-ms="262" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- testCases.TC002_LoginTest -->
+      <class name="testCases.TC001_AccountRegistration">
+        <test-method is-config="true" signature="setUp(java.lang.String,java.lang.String)[pri:0, instance:testCases.TC001_AccountRegistration@460d0a57]" started-at="2026-06-10T18:42:13 IST" name="setUp" finished-at="2026-06-10T18:42:31 IST" duration-ms="17602" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Windows]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[edge]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="accRegister()[pri:0, instance:testCases.TC001_AccountRegistration@460d0a57]" started-at="2026-06-10T18:42:31 IST" name="accRegister" finished-at="2026-06-10T18:42:34 IST" duration-ms="3161" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- accRegister -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:testCases.TC001_AccountRegistration@460d0a57]" started-at="2026-06-10T18:42:34 IST" name="tearDown" finished-at="2026-06-10T18:42:34 IST" duration-ms="285" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- testCases.TC001_AccountRegistration -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>
